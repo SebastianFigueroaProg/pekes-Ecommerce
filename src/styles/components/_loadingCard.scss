@@ -1,0 +1,63 @@
+.card_container{
+    .card_loading{
+        width: 250px;
+        height: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $cardProduct;
+        position: relative;
+        border-radius: 10%;
+        overflow: hidden;
+        .center_loading{
+            min-height: 220px;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            .ring{
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                animation: ring 2s linear infinite;
+                &::before{
+                    position: absolute;
+                    content: '';
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 50%;
+                    box-shadow: 0 0 5px rgba(255, 255, 255, .3);
+                }
+            }
+            span{
+                font-size: 16px;
+                text-transform: uppercase;
+                animation: text 3s linear infinite;
+            }
+        }
+    }
+}
+
+@keyframes ring {
+    0%{
+        transform: rotate(0deg);
+        box-shadow: 1px 2px 2px #69E1FA;
+    }
+    50%{
+        transform: rotate(180deg);
+        box-shadow: 1px 2px 2px #4CAAF6;
+    }
+    100%{
+        transform: rotate(360deg);
+        box-shadow: 1px 2px 2px #6FF7FB;
+    }
+}
+
+@keyframes text {
+    50%{
+        color: $cardProduct;
+    }
+}

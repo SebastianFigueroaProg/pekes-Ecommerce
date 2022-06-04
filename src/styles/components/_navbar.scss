@@ -1,0 +1,201 @@
+.navbar{
+    height: 100px;
+    background-color: $primary;
+    overflow: hidden;
+    .toolbar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: $secondary;
+        padding-top: 3px;
+        .boxsvg{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-left: 2%;
+        }
+        .image{
+            margin-left: 110px;
+            width: 300px;
+            height: 250px;
+            margin-top: -80px;
+        }
+        .conteiner{
+            margin-top: -80px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding-right: 2%;
+            gap: 15px;
+            .box-conteiner{
+                width: 70px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                .objeto1{
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    transition: 0.3s;
+                    .buttonIcon1, .text1{
+                        position: absolute;
+                        margin-top: -50px;                       
+                        transition: 0.3s;                        
+                    }
+                    .buttonIcon1{
+                        font-size: 1.3rem;
+                        color: $secondary;
+                    }
+                    .text1{
+                        left: -40px;
+                        opacity: 0;                        
+                        font-weight: bold;
+                        margin-left: -20px;
+                        color: white;
+                        background-color: $secondary;
+                        padding: 2px 10px 2px 10px;
+                        border-radius: 15px;  
+                    }
+                    &:hover{                        
+                        .buttonIcon1{
+                            opacity: 0;
+                        }
+                        .text1{                            
+                            animation: move1 1.5s forwards;
+                        }
+                    }                                      
+                }
+                .objeto2{
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    transition: 0.3s;
+                    .buttonIcon2, .text2{
+                        position: absolute;
+                        margin-top: 0px;
+                        transition: 0.3s;
+                    }
+                    .buttonIcon2{
+                        font-size: 1.3rem;                        
+                        color: $secondary;
+                    }
+                    .text2{
+                        left: -27px;
+                        opacity: 0;                        
+                        margin-left: -20px;
+                        font-weight: bold;
+                        color: white;
+                        background-color: $secondary;
+                        padding: 2px 10px 2px 10px;
+                        border-radius: 15px; 
+                    }
+                    &:hover{                        
+                        .buttonIcon2{
+                            opacity: 0;
+                        }
+                        .text2{
+                            animation: move2 1.5s forwards;
+                        }
+                    }                                                          
+                }
+                .objeto3{
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    transition: 0.3s;
+                    .buttonIcon3, .text3{
+                        position: absolute;
+                        margin-top: 50px;
+                        transition: 0.3s;
+                    }
+                    .buttonIcon3{
+                        font-size: 1.3rem;
+                        color: $secondary;
+                    }
+                    .text3{
+                        left: -25px;
+                        opacity: 0;
+                        margin-left: -20px;
+                        font-weight: bold;
+                        color: white;
+                        background-color: $secondary;
+                        padding: 2px 10px 2px 10px;
+                        border-radius: 15px;                        
+                    }
+                    &:hover{                        
+                        .buttonIcon3{
+                            opacity: 0;
+                        }
+                        .text3{                            
+                            animation: move3 1.5s forwards;
+                        }
+                    }   
+                }                                                            
+            }
+            .login{
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+                .imgUser{
+                    width: 40px;
+                    border-radius: 100%;
+                }
+                .center{
+                    font-size: 2.5rem;
+                }
+                .buttonLogin{
+                    transition: 0.5s;
+                    color: $secondary;                
+                    &:hover{
+                        color: white;
+                        transform: scale(1.1);
+                    }
+                }
+                .buttonLogout{
+                    font-size: 1.5rem;
+                    padding-left: 5px;
+                    transition: 0.5s;                
+                    &:hover{
+                        color: white;
+                        transform: scale(1.1);                        
+                    }
+                }
+            }
+            
+        }                
+    }
+    
+}
+.spacing{
+    height: 100px;
+}
+
+@keyframes move1 {
+    0%{
+        transform: translateX(20px);        
+    }
+    100%{
+        transform: translateX(-10px);
+        opacity: 1;
+    }
+}
+@keyframes move2 {
+    0%{
+        transform: translateX(20px);
+    }
+    100%{
+        transform: translateX(-8px);
+        opacity: 1;
+    }
+}
+@keyframes move3 {
+    0%{
+        transform: translateX(20px);
+    }
+    100%{
+        transform: translateX(-8px);
+        opacity: 1;
+    }
+}
