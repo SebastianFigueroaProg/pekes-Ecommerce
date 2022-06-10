@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 export const AdminScreen = () => {
     return (
-        <div>
+        <div className='main_admin'>
             <h2>Admin Screen</h2>
         </div>
     )

@@ -10,9 +10,7 @@ export const ProductoCard = ({nombre, precio, img, disponible}) => {
             setHeart(false)
         } else {
             setHeart(true)
-        }
-        console.log(heart);
-        
+        }        
     }
     
 

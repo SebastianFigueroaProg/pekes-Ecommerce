@@ -11,13 +11,13 @@ import { User } from '../components/user/User';
 export const DashboardRouter = () => {   
     return (
         <div>
-            <Navbar/>
+            <Navbar />
             <Routes>
                 <Route path='*' element={ <HomeScreen/> }/>
                 <Route path='cart' element={ <CarritoScreen/> }/>
                 <Route path='catalogo' element={ <CatalogoScreen/> }/>
                 <Route path='buscar' element={ <BuscarScreen/> }/>
-                <Route path='usuario' element={ <User/> }/>
+                <Route path='usuario' element={ <User/> }/>                
             </Routes>
             <Footer/>
         </div>

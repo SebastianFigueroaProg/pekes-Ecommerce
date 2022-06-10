@@ -5,16 +5,24 @@ import { WhatsApp } from '../../icons/WhatsApp';
 import { AiOutlineAppstore, AiOutlineSearch, AiOutlineShoppingCart } from "react-icons/ai";
 import { BiLogOut, BiUserCircle } from "react-icons/bi";
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { startLogout } from '../../actions/auth';
+
 
 export const Navbar = () => {
 
-    let login = false;
-    
+    const dispatch = useDispatch();
+    const state = useSelector( state => state.auth );
+    const login = state.estado;
     
     const propWidth = 20;
     const propHeigth = 20;
     const logo = '/assets/imageLogo.jpeg';
     const noImage = '/assets/no-image.jpg';
+
+    const handleLogout = () =>{
+        dispatch( startLogout() );
+    }
 
     return (
         <div>
@@ -56,7 +64,7 @@ export const Navbar = () => {
                                             <Link to='usuario'>
                                                 <img src={noImage} alt="Sin Foto" className='imgUser' />
                                             </Link>
-                                            <span className='buttonLogout pointer'><BiLogOut /></span>
+                                            <span onClick={handleLogout} className='buttonLogout pointer'><BiLogOut /></span>
                                         </div>
                             }                            
                         </div>
