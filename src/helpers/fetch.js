@@ -18,7 +18,7 @@ export const fetchConToken = ( endpoint, data, method = 'GET' ) =>{
             method,
             headers:{
                 'Content-type':'application/json',
-                'x-token': token
+                'x-token': token,
             },
             body: JSON.stringify(data)
         })

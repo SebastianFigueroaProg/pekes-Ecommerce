@@ -1,0 +1,26 @@
+.carrusel_main{
+    width: 100%;
+    height: 300px;
+    background-color: #353f5ada;
+    position: relative;
+    overflow: hidden;
+    .carrusel__img{
+        width: 100%;
+        height: 100%;
+    }
+    .arrow__back, .arrow__forward{
+        position: absolute;
+        font-size: 5rem;
+        margin-top: 110px;
+        color: rgba(12,23,27,0.6);
+        &:hover{
+            color: rgba(255, 255, 255, 0.4);
+        }
+    }
+    .arrow__back{
+        left: -1%;
+    }
+    .arrow__forward{
+        right: -1%;
+    }
+}

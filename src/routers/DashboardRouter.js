@@ -4,14 +4,17 @@ import { BuscarScreen } from '../components/buscador/BuscarScreen';
 import { CarritoScreen } from '../components/cart/CarritoScreen';
 import { CatalogoScreen } from '../components/catalogo/CatalogoScreen';
 import { HomeScreen } from '../components/home/HomeScreen';
+import { Carrusel } from '../components/ui/Carrusel';
 import { Footer } from '../components/ui/Footer';
 import { Navbar } from '../components/ui/Navbar';
 import { User } from '../components/user/User';
 
-export const DashboardRouter = () => {   
+export const DashboardRouter = () => { 
+
     return (
         <div>
             <Navbar />
+            <Carrusel/>
             <Routes>
                 <Route path='*' element={ <HomeScreen/> }/>
                 <Route path='cart' element={ <CarritoScreen/> }/>

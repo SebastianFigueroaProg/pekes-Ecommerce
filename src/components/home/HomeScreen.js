@@ -11,13 +11,11 @@ export const HomeScreen = () => {
     let datos = {}
 
     if (data !== null) {
-        datos = data.productos      
+        datos = data.productos              
     }
-    useEffect(() => {
+    useEffect(() => {  
         
-    }, []);
-    
-
+    }, []);    
 
     return (
         <div>

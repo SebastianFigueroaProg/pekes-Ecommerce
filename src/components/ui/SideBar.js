@@ -1,5 +1,5 @@
 import React from 'react';
-import { BiUserCircle, BiCategory, BiHome } from "react-icons/bi";
+import { BiUserCircle, BiCategory, BiHome, BiSearchAlt2 } from "react-icons/bi";
 import { RiProductHuntLine, RiLogoutBoxLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
@@ -32,6 +32,7 @@ export const SideBar = () => {
                     <Link to='user' className='list_icon pointer'><span>Usuarios {'>'}</span><BiUserCircle/></Link>
                     <Link to='productos' className='list_icon pointer'><span>Productos {'>'}</span><RiProductHuntLine/></Link>
                     <Link to='catalogo' className='list_icon pointer'><span>Catalogo {'>'}</span><BiCategory/></Link>
+                    <Link to='search' className='list_icon pointer'><span>Buscar {'>'}</span><BiSearchAlt2/></Link>
                 </section>
                 
                 <div onClick={handleLogout} className='logout pointer'><span>Logout {'>'}</span><RiLogoutBoxLine/></div>

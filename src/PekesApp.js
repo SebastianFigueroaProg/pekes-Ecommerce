@@ -6,7 +6,7 @@ import store, {Persistor}  from './store/store';
 import { PersistGate } from 'redux-persist/integration/react';
 
 
-export const PekesApp = () => {
+export const PekesApp = () => {    
 
     return (
         <Provider store={ store }>

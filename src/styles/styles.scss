@@ -6,6 +6,8 @@
 @import './components/homeStyle';
 @import './components/card';
 @import './components/loadingCard';
+@import './components/carrusel';
+
 
 
 //Auth
@@ -15,3 +17,8 @@
 //admin
 @import './components/admin/adminScreen';
 @import './components/admin/sideBar';
+@import './components/admin/adminProduct';
+
+
+//Modal
+@import './components/modals/modalProducto';

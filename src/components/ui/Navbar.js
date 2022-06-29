@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { startLogout } from '../../actions/auth';
 
-
 export const Navbar = () => {
 
     const dispatch = useDispatch();

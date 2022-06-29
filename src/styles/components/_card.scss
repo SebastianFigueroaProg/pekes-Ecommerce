@@ -28,7 +28,7 @@
             bottom: 0;
             .card_texto{
                 font-size: 0.8rem;
-                color: black;
+                color: white;
                 .textBold{
                     font-weight: bold;
                     font-size: 1rem;
@@ -45,6 +45,103 @@
             right: 4px;
             top: 8px;
         }
+        .btnAddCarts{
+            background-color: $opacityProduct;
+            position: absolute;
+            border-radius: 100%;
+            color: darken($color: rgb(49, 230, 49), $amount: 20);
+            padding: 0;
+            border: none;
+            bottom: 4px;
+            left: 13px;
+            font-size: 17px;
+            &:hover{
+                color: rgb(49, 230, 49);
+                filter: drop-shadow(0 0 3px rgb(35, 196, 35));  
+            }
+        }
+        .btnSubstractCarts{
+            background-color: $opacityProduct;
+            position: absolute;
+            border-radius: 100%;
+            color: darken($color: rgb(245, 44, 37), $amount: 20);
+            padding: 0;
+            border: none;
+            bottom: 4px;
+            left: 13px;
+            font-size: 17px;
+            &:hover{
+                color: rgb(245, 44, 37);
+                filter: drop-shadow(0 0 3px rgb(196, 40, 35));  
+            }
+        }
+    }
+}
 
+.contenedorSection_catalogo{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    .contenedor_catalogo{
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 20px 50px -10px 50px;
+        gap: 1rem;
+        .nombreCat{
+            background-color: $opacityProduct;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            padding: 10px 30px 10px 30px;
+            color: white;
+            &:hover{
+                background-color: $primary;
+                filter: drop-shadow(0 0 5px $secondary);   
+            }
+            
+        }
+    }
+    .spaceBottom{
+        height: 120px;
+    }
+
+    .container_cards{
+        margin-top: 20px;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+.contenedorCarrito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 120px 0px  120px;
+    gap: 1.5rem;
+    text-align: center;
+    .contenidoCarrito{
+        display: flex;
+        gap: 2rem;
+        margin-top: 10px;
+        color: $secondary;
+        font-weight: bold;
+        span{
+            font-size: 1.2rem;
+            color: white;
+        }
+    }
+    .contenedorProdCarrito{
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .spaceBottom{
+        height: 120px;
     }
 }

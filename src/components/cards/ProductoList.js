@@ -1,13 +1,12 @@
 import React from 'react';
 
-
-export const ProductoList = ({catalogo}) => {
-
-    
+export const ProductoList = (props) => {
 
     return (
-        <div >
-            CATALOGO
-        </div>
+        <>           
+            <button className='nombreCat pointer' onClick={e=>props.change(props.uid)}>
+                {props.nombre}
+            </button>
+        </>
     )
 }

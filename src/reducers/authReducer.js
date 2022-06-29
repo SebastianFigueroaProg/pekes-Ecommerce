@@ -17,7 +17,13 @@ export const authReducer = ( state = initialState, action ) => {
         return{
             ...state,
             checking: false
-        }          
+        } 
+        case types.authGoogle:
+        return{
+            ...state,
+            ...action.payload,
+            checking: false
+        }         
         case types.authLogout:
             return { 
                 checking: false

@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { FaPlusCircle } from "react-icons/fa";
-import { guardarLocalStorage } from '../../helpers/guardarLocalStorage';
+import { FaMinusCircle } from "react-icons/fa";
+import { borrarItem } from '../../helpers/guardarLocalStorage'
 import Swal from 'sweetalert2';
 
-
-export const ProductoCard = ({uid,nombre, precio, img, disponible}) => {
+export const ProductoCardCarrito = (props) => {
     
     const [heart, setHeart] = useState(false);
-    const [array, setArray] = useState(['vacio']);    
+    const [data, setData] = useState('');
     
     const clickHeart = ()=>{
         if (heart) {
@@ -17,11 +16,11 @@ export const ProductoCard = ({uid,nombre, precio, img, disponible}) => {
         } else {
             setHeart(true)
         }        
-    };       
-    //Usamos udeEffect para cada ocacion que se dispare un cambio de estado se ejecute la funcion para cargar localStorage
-    useEffect(() => {        
-        guardarLocalStorage(array);                   
-    }, [array]);
+    }
+    
+    useEffect(() => {
+        borrarItem(data)
+    }, [data])   
 
     const Toast = Swal.mixin({
         toast: true,
@@ -36,19 +35,19 @@ export const ProductoCard = ({uid,nombre, precio, img, disponible}) => {
     })
 
     return (
-        <div className='card_container'>
+        <div className='card_container' id='cardId'>
             <article className='card_main'>
-                <img src={img} alt={nombre} className='card_img' />
+                <img src={props[2]} alt={props[1]} className='card_img' />
                 <div className='card_title'>
                     {
-                        disponible 
+                        props[4] 
                         ?
                             (
-                                <p className='card_texto'><span className='textBold'>{nombre} - </span>${precio}</p>
+                                <p className='card_texto'><span className='textBold'>{props[1]} - </span>${props[3]}</p>
                             )
                         :
                             (
-                                <p className='card_texto'><span className='textBold'>{nombre} - </span>S/stock</p>
+                                <p className='card_texto'><span className='textBold'>{props[1]} - </span>S/stock</p>
                             )
                     }
                 </div>
@@ -61,14 +60,17 @@ export const ProductoCard = ({uid,nombre, precio, img, disponible}) => {
                                 <AiFillHeart/>                    
                 }
                 </button>
-                <button className='btnAddCarts pointer' onClick={e=>{
-                    setArray([uid,nombre,img,precio,disponible,e.timeStamp]);
+                <button className='btnSubstractCarts pointer' onClick={e=>{
+                    setData(props[5]);
+                    props.change(!props.value)
                     Toast.fire({
-                        icon: 'success',
-                        title: 'Haz agregado 1 producto al Carrito'
+                        icon: 'error',
+                        title: 'Se elimino un producto del Carrito'
                     });
-                }}><FaPlusCircle/></button>
+                }}
+                ><FaMinusCircle/></button>
             </article>
         </div>
     )
 }
+

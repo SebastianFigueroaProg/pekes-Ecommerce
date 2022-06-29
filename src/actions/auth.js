@@ -1,8 +1,6 @@
 import { fetchConToken } from "../helpers/fetch"
 import { types } from "../types/types";
-import Swal from 'sweetalert2';
-
-
+import Swal from 'sweetalert2'; 
 
 export const startLogin = ( correo, password) => {
     return async(dispatch) => {
@@ -73,10 +71,37 @@ export const startChecking = () =>{
     }
 }
 
+export const googleLogin = (idToken) => {
+    return async(dispatch) => {
+        
+        const resp = await fetchConToken('auth/google', {id_token: idToken}, 'POST' );
+        const body = await resp.json();
+
+        if ( body.usuario !== undefined ) {
+            localStorage.setItem('token', body.token);
+            localStorage.setItem('token-init-date', new Date().getTime());
+
+            dispatch( google({
+                uid: body.usuario.uid,
+                name: body.usuario.nombre,
+                rol: body.usuario.rol,
+                estado: body.usuario.estado
+            }) )
+        } else{
+            Swal.fire('Error', body.msg, 'error');
+        }
+        
+    }
+}
+
 const checkingFinish = () => ({type: types.authCheckingFinish});
 
 const login = (user)=>({
     type: types.authLogin,
+    payload: user
+})
+const google = (user)=>({
+    type: types.authGoogle,
     payload: user
 })
 

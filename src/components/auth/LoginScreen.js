@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
-import { startLogin } from '../../actions/auth';
+import { googleLogin, startLogin } from '../../actions/auth';
 import { BiHome } from "react-icons/bi";
 
 export const LoginScreen = () => {
@@ -14,17 +14,35 @@ export const LoginScreen = () => {
         password: '123456'
     });
 
-    const { email, password} = formLoginValues;
+    const { email, password } = formLoginValues;
 
     const handleLogin = (e) =>{
         e.preventDefault();
 
         dispatch(startLogin(email, password));
         
-    }
+    }    
+    
+    const handleCallbackResponse= (response) => {
+        dispatch(googleLogin(response.credential));       
+    };
+
+    useEffect(() => {
+        /* global google */
+        google.accounts.id.initialize({
+            client_id: "844798979110-vp4vtmqne0v6tfleekp74ortn4tp3ovl.apps.googleusercontent.com",
+            callback:handleCallbackResponse
+        })
+        google.accounts.id.renderButton(
+            document.getElementById('signInDiv'),
+            { theme: 'outline', size: 'large'}
+        );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
 
     return (
-        <>
+        <div>
             <h3 className='auth__title'>Login</h3>
 
             <form onSubmit={ handleLogin }>
@@ -54,18 +72,9 @@ export const LoginScreen = () => {
 
                 <div className='auth__social-network'>
                     <p>Iniciar con boton de Google</p>
-
-                    <div 
-                        className="google-btn"
-                    >
-                        <div className="google-icon-wrapper">
-                            <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
-                        </div>
-                        <p className="btn-text">
-                            <b>Iniciar sesión con Google</b>
-                        </p>
-                    </div>
+                    <div id='signInDiv' className='google-btn'></div>
                 </div>
+                    
                 <div className='auth-btnContainer'>
                     <Link to="/auth/register"
                             className='link'
@@ -78,8 +87,7 @@ export const LoginScreen = () => {
                         <BiHome/>
                     </Link>                
                 </div>
-
             </form>
-        </>
+        </div>
     )
 }
